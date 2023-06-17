@@ -16,7 +16,7 @@ const App = () => {
 
   const { good, neutral, bad } = state;
   const totalFeedback = good + neutral + bad;
-  const positivePercentage = totalFeedback ? (good / totalFeedback) * 100 : 0;
+  const positivePercentage = totalFeedback ? ((good / totalFeedback) * 100).toFixed(2) : 0;
 
   return (
     <div>
