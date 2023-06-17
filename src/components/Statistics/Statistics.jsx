@@ -1,47 +1,24 @@
-// import styles from '../Feedback/Feedback.module.css';
-// import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-// const Statistic = ({ state: initialState }) => {
-//     const [state, setState] = useState(initialState);
-  
-//     const handleClick = type => {
-//       setState(prevState => ({
-//         ...prevState,
-//         [type]: prevState[type] + 1
-//       }));
-//     };
-  
-//     const countTotalFeedback = () => {
-//       return state.good + state.neutral + state.bad;
-//     };
-//     const totalFeedback = countTotalFeedback();
-  
-  
-//     const countPositiveFeedbackPercentage = () => {
-//       return 100 * (state.good / totalFeedback);
-//     };
-//     const positiveFeedback = countPositiveFeedbackPercentage();
-  
-//     return (
-//         <h2>Statistics</h2>
-//         <p>Good: {state.good}</p>
-//         <p>Neutral: {state.neutral}</p>
-//         <p>Bad: {state.bad}</p>
-//         <p>Total: {totalFeedback}</p>
-//         <p>Positive feedback: {isNaN(positiveFeedback) ? 0 : positiveFeedback}%</p>
-//       </div>
-//     );
-//   };
+const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+  return (
+    <div>
+      <p>Good: {good}</p>
+      <p>Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
+      <p>Total: {total}</p>
+      <p>Positive feedback: {isNaN(positivePercentage) ? 0 : positivePercentage}%</p>
+    </div>
+  );
+};
 
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired
+};
 
-
-
-//   Statistic.propTypes = {
-//     state: PropTypes.shape({
-//       good: PropTypes.number.isRequired,
-//       neutral: PropTypes.number.isRequired,
-//       bad: PropTypes.number.isRequired
-//     }).isRequired
-//   };
-  
+export default Statistics;
